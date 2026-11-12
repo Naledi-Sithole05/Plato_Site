@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap");
+
+:root {
+  --cream: #f7f4ef;
+  --forest: #0f3b2e;
+  --ink: #111111;
+  --sage-overlay: rgba(31, 78, 64, 0.5);
+  --gutter: 1.1rem;
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+html {
+  font-size: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding-bottom: 5.5rem;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 0.125rem solid var(--forest);
+  outline-offset: 0.2rem;
+}
+
+.skip-link {
+  position: absolute;
+  left: -100vw;
+}
+.skip-link:focus {
+  left: var(--gutter);
+  top: 0.5rem;
+  z-index: 100;
+  padding: 0.5rem 1rem;
+  background: var(--cream);
+  border-radius: 100vmax;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem var(--gutter);
+  background: var(--cream);
+}
+
+.site-logo img {
+  width: clamp(6rem, 24vw, 13.75rem);
+  height: auto;
+}
+
+.site-tools {
+  display: flex;
+  gap: clamp(0.9rem, 2.5vw, 1.4rem);
+}
+.site-tools img {
+  width: clamp(1.4rem, 3vw, 1.9rem);
+  height: auto;
+}
+
+.site-nav {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 50;
+  padding: 0.9rem 1rem calc(0.9rem + env(safe-area-inset-bottom, 0rem));
+  background: var(--cream);
+}
+.site-nav ul {
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.625rem;
+  opacity: 0.75;
+  transition: opacity 0.15s;
+}
+.nav-link img {
+  width: 1.4rem;
+  height: 1.4rem;
+  object-fit: contain;
+}
+.nav-link:hover,
+.nav-link.is-active {
+  opacity: 1;
+}
+.nav-link.is-active span {
+  font-weight: 600;
+}
+
+.hero {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.btn-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: clamp(2.25rem, 6vw, 4.625rem);
+  padding-inline: clamp(1.4rem, 5vw, 3.8rem);
+  border-radius: 100vmax;
+  background: var(--cream);
+  color: var(--ink);
+  font: 600 clamp(0.8rem, 1.2vw + 0.5rem, 1.25rem) / 1 var(--font);
+}
+.hero .btn-pill {
+  position: absolute;
+  left: var(--gutter);
+  bottom: clamp(1rem, 4vw, 3rem);
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--gutter);
+  padding: 2.4rem var(--gutter) var(--gutter);
+}
+
+.tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 2.6 / 1;
+  border-radius: clamp(1.25rem, 5vw, 5rem);
+  overflow: hidden;
+  isolation: isolate;
+}
+.tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.tile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--sage-overlay);
+  z-index: -1;
+}
+
+.tile-label {
+  position: absolute;
+  left: 8%;
+  bottom: 12%;
+  display: flex;
+  align-items: center;
+  gap: 0.75em;
+  color: #fff;
+  font: 500 clamp(0.65rem, 1vw + 0.4rem, 1.25rem) / 1.2 var(--font);
+}
+.tile-label svg {
+  width: 2.4em;
+  height: 0.9em;
+  transition: transform 0.2s;
+}
+.tile:hover .tile-label svg {
+  transform: translateX(0.4rem);
+}
+
+@media (min-width: 40em) {
+  .tiles {
+    grid-template-columns: 1fr 1fr;
+    padding-top: 1.4rem;
+  }
+  .tile {
+    aspect-ratio: 4 / 3;
+  }
+  .tile:last-child {
+    grid-column: 1 / -1;
+    aspect-ratio: 3 / 1;
+  }
+}
+
+@media (min-width: 48em) {
+  body {
+    padding-bottom: 0;
+  }
+
+  .site-header {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    padding: 1.2rem 2rem;
+    min-height: 6.2rem;
+  }
+  .site-tools {
+    justify-content: flex-end;
+  }
+
+  .site-nav {
+    position: static;
+    padding: 0;
+    background: none;
+  }
+  .site-nav ul {
+    gap: clamp(1.5rem, 4vw, 2.4rem);
+  }
+  .nav-link {
+    font-size: 0.7rem;
+  }
+  .nav-link img {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .hero {
+    aspect-ratio: 10 / 3;
+  }
+}
+
+@media (min-width: 64em) {
+  .tiles {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .tile,
+  .tile:last-child {
+    grid-column: auto;
+    aspect-ratio: 4 / 3.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
