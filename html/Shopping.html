@@ -2,13 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Shopping | PLATŌ</title>
     <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="stylesheet" href="/CSS/Shopping.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="/Java/navigation.js" defer></script>
+    <script src="/Java/shopping.js" defer></script>
 </head>
 <body>
-    <main id="main">
+    <main id="main" class="shop">
+        <nav class="side" aria-label="Menu categories">
+            <h1 class="side-title">Our Menu</h1>
+            <ul class="side-list" id="categories"></ul>
+        </nav>
+
+        <section class="shop-main">
+            <header class="shop-head">
+                <h2 class="shop-cat" id="catTitle">Featured</h2>
+                <span class="shop-count" id="catCount"></span>
+            </header>
+            <p class="menu-status" id="status" role="status" aria-live="polite"></p>
+            <div class="menu-grid" id="grid" aria-live="polite"></div>
+        </section>
     </main>
 </body>
 </html>

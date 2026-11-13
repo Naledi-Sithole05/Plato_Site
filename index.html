@@ -5,16 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>PLATŌ</title>
     <link rel="stylesheet" href="/CSS/Style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
     <script src="/Java/navigation.js" defer></script>
+    <script src="/Java/motion.js" defer></script>
 </head>
 <body>
     <main id="main">
-        <section class="hero">
-            <img class="hero-img"
-                 src="/IMGS/Product-imgs/PLATŌ Café Drink Collection.png"
-                 alt="Iced latte, matcha, cappuccino and americano in PLATŌ cups">
-            <a class="btn-pill" href="/html/">Order Now</a>
-        </section>
+        <div class="hero-stage">
+            <section class="hero">
+                <img class="hero-img"
+                     src="/IMGS/Product-imgs/PLATŌ Café Drink Collection.png"
+                     alt="Iced latte, matcha, cappuccino and americano in PLATŌ cups">
+
+                <img class="fly" data-cup="latte"     data-cut="12.9" style="--x:21.2%; --y:46%; --w:22%;" src="/IMGS/MotionIMGS/latte (1).png"     alt="">
+                <img class="fly" data-cup="matcha"                    style="--x:40.3%; --y:42.9%; --w:10%;" src="/IMGS/MotionIMGS/matcha.png"    alt="">
+                <img class="fly" data-cup="cocoa"     data-cut="10.8" style="--x:60.5%; --y:60%; --w:15%;" src="/IMGS/MotionIMGS/cocoa.png"     alt="">
+                <img class="fly" data-cup="americano"                 style="--x:80%; --y:50%; --w:15%;" src="/IMGS/MotionIMGS/americano (1).png" alt="">
+
+                <a class="btn-pill" href="/html/Shopping.html">Order Now</a>
+            </section>
+        </div>
 
         <section class="tiles">
             <a class="tile" href="/html/Shopping.html">
@@ -27,7 +38,7 @@
                 </span>
             </a>
 
-            <a class="tile" href="/html/Find-Location.html">
+            <a class="tile" href="/html/Shopping.html">
                 <img src="/IMGS/BackgroundIMGS/images (42).jpeg" alt="">
                 <span class="tile-label">
                     Browse Products
